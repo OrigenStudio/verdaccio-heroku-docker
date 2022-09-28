@@ -1,4 +1,4 @@
-FROM verdaccio/verdaccio:3.12.3
+FROM verdaccio/verdaccio:5
 
 USER root
 
@@ -9,3 +9,5 @@ RUN yarn && yarn add verdaccio-github-oauth-ui
 COPY ./config.yaml /verdaccio/conf
 
 USER verdaccio
+
+CMD node -r ./.pnp.js $VERDACCIO_APPDIR/bin/verdaccio --config /verdaccio/conf/config.yaml --listen $VERDACCIO_PROTOCOL://0.0.0.0:$PORT
