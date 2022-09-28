@@ -18,17 +18,17 @@ uplinks:
   npmjs:
     url: https://registry.npmjs.org/
 packages:
-  '@origen-studio/*':
+  '@origen-studio/starter*':
+    access: github/org/OrigenStudio/team/starter
+    publish: github/org/OrigenStudio/team/starter
+    proxy: npmjs
+  '@*/*':
     access: github/org/OrigenStudio
     publish: github/org/OrigenStudio
     proxy: npmjs
-  '@*/*':
-    access: $authenticated
-    publish: $authenticated
-    proxy: npmjs
   '**':
+    access: github/org/OrigenStudio
+    publish: github/org/OrigenStudio
     proxy: npmjs
-    access: $authenticated
-    publish: $authenticated
 logs:
   - {type: stdout, format: pretty, level: http}
