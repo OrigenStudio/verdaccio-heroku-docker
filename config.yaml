@@ -1,9 +1,13 @@
 storage: ./storage
+middlewares:
+  github-oauth-ui:
+    enabled: true
 auth:
   github-oauth-ui:
     org: GITHUB_OAUTH_ORG
     client-id: GITHUB_OAUTH_CLIENT_ID
-    token: GITHUB_OAUTH_CLIENT_SECRET
+    client-secret: GITHUB_OAUTH_CLIENT_SECRET
+    token: GITHUB_OAUTH_TOKEN
 uplinks:
   npmjs:
     url: https://registry.npmjs.org/
