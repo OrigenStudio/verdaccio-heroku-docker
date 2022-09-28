@@ -3,7 +3,7 @@ auth:
   github-oauth-ui:
     org: GITHUB_OAUTH_ORG
     client-id: GITHUB_OAUTH_CLIENT_ID
-    client-secret: GITHUB_OAUTH_CLIENT_SECRET
+    token: GITHUB_OAUTH_CLIENT_SECRET
 uplinks:
   npmjs:
     url: https://registry.npmjs.org/
