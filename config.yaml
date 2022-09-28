@@ -8,6 +8,12 @@ auth:
     client-id: GITHUB_OAUTH_CLIENT_ID
     client-secret: GITHUB_OAUTH_CLIENT_SECRET
     token: GITHUB_OAUTH_TOKEN
+security:
+  api:
+    legacy: false
+    jwt:
+      sign:
+        expiresIn: 29d
 uplinks:
   npmjs:
     url: https://registry.npmjs.org/
