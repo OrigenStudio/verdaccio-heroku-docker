@@ -17,3 +17,5 @@ RUN npm install --global verdaccio-github-oauth-ui \
   && npm install --global verdaccio-aws-s3-storage
 # back to original user
 USER $VERDACCIO_USER_UID
+
+CMD /bin/sh -c verdaccio --config /verdaccio/conf/config.yaml --listen $VERDACCIO_PROTOCOL://0.0.0.0:$PORT
