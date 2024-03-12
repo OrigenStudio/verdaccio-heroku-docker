@@ -28,12 +28,21 @@ security:
 uplinks:
   npmjs:
     url: https://registry.npmjs.org/
+  gsap:
+    url: https://npm.greensock.com/
+    auth:
+      type: bearer
+      token_env: GSAP_TOKEN
 
 packages:
   '@origen-studio/starter*':
     access: github/org/OrigenStudio/team/starter
     publish: github/org/OrigenStudio/team/starter
     proxy: npmjs
+  '@gsap/*':
+    access: github/org/OrigenStudio
+    publish: github/org/OrigenStudio
+    proxy: gsap
   '@*/*':
     access: github/org/OrigenStudio
     publish: github/org/OrigenStudio
