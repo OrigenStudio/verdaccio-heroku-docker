@@ -4,8 +4,6 @@ USER root
 
 ENV NODE_ENV=production
 
-RUN corepack enable
-
 RUN yarn && yarn add verdaccio-github-oauth-ui verdaccio-aws-s3-storage
 
 COPY ./config.yaml /verdaccio/conf
