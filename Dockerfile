@@ -1,21 +1,13 @@
-# Docker multi-stage build - https://docs.docker.com/develop/develop-images/multistage-build/
-# Use an alpine node image to install the plugin
-FROM node:lts-alpine as builder
+FROM verdaccio/verdaccio:5.14.0
 
-# RUN mkdir -p /verdaccio/plugins \
-#   && cd /verdaccio/plugins \
-#   && npm install --global-style --no-bin-links --omit=optional verdaccio-auth-memory@latest
-
-FROM verdaccio/verdaccio:5
-
-# copy your modified config.yaml into the image
-ADD config.yaml /verdaccio/conf/config.yaml
-# need it for install global plugins
 USER root
-# install plugins with npm global
-RUN npm install --global verdaccio-github-oauth-ui \
-  && npm install --global verdaccio-aws-s3-storage
-# back to original user
-USER $VERDACCIO_USER_UID
 
-CMD /bin/sh -c verdaccio --config /verdaccio/conf/config.yaml --listen $VERDACCIO_PROTOCOL://0.0.0.0:$PORT
+ENV NODE_ENV=production
+
+RUN yarn && yarn add verdaccio-github-oauth-ui verdaccio-aws-s3-storage
+
+COPY ./config.yaml /verdaccio/conf
+
+USER verdaccio
+
+CMD node -r ./.pnp.js $VERDACCIO_APPDIR/bin/verdaccio --config /verdaccio/conf/config.yaml --listen $VERDACCIO_PROTOCOL://0.0.0.0:$PORT

@@ -52,5 +52,5 @@ packages:
     publish: github/org/OrigenStudio
     proxy: npmjs
 
-log:
+logs:
   - {type: stdout, format: pretty, level: http}
