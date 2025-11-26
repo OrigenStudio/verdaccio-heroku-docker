@@ -43,6 +43,10 @@ packages:
     access: github/org/OrigenStudio
     publish: github/org/OrigenStudio
     proxy: gsap
+  '@alphabite/*':
+    access: $all
+    publish: github/org/OrigenStudio
+    proxy: npmjs
   '@*/*':
     access: github/org/OrigenStudio
     publish: github/org/OrigenStudio
